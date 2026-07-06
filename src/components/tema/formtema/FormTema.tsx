@@ -4,6 +4,7 @@ import { ClipLoader } from "react-spinners"
 import { AuthContext } from "../../../contexts/AuthContext"
 import type Tema from "../../../models/Tema"
 import {atualizar, buscar, cadastrar} from "../../../services/Service"
+import { ToastAlerta } from "../../../utils/ToastAlerta"
 
 function FormTema() {
 
@@ -38,7 +39,7 @@ function FormTema() {
   useEffect(() => {
 
     if (token === "") {
-      alert("Você precisa estar logado!")
+      ToastAlerta("Você precisa estar logado!", "info")
       navigate("/")
     }
 
@@ -79,14 +80,14 @@ function FormTema() {
           }
         })
 
-        alert("Tema atualizado com sucesso!")
+        ToastAlerta("Tema atualizado com sucesso!", "sucesso")
 
       } catch (error: any) {
 
         if (error.toString().includes("401")) {
           handleLogout()
         } else {
-          alert("Erro ao atualizar o tema!")
+          ToastAlerta("Erro ao atualizar o tema!", "erro")
         }
       }
 
@@ -100,14 +101,14 @@ function FormTema() {
           }
         })
 
-        alert("Tema cadastrado com sucesso!")
+        ToastAlerta("Tema cadastrado com sucesso!", "sucesso")
 
       } catch (error: any) {
 
         if (error.toString().includes("401")) {
           handleLogout()
         } else {
-          alert("Erro ao cadastrar o tema!")
+          ToastAlerta("Erro ao cadastrar o tema!", "erro")
         }
       }
     }
