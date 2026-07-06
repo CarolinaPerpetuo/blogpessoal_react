@@ -1,3 +1,4 @@
+import ListaPostagens from "../../components/postagem/listapostagens/ListaPostagens"
 
 function Home() {
     return (
@@ -30,6 +31,8 @@ function Home() {
                     </div>
                 </div>
             </div>
+
+             <ListaPostagens />
         </>
     )
 }

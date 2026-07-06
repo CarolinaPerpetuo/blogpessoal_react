@@ -47,7 +47,7 @@ function Login() {
               placeholder="Usuario"
               className="border-2 border-slate-700 rounded p-2"
               value={usuarioLogin.usuario}
-              onChange={atualizarEstado}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
 
@@ -60,7 +60,7 @@ function Login() {
               placeholder="Senha"
               className="border-2 border-slate-700 rounded p-2"
               value={usuarioLogin.senha}
-              onChange={atualizarEstado}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
 
@@ -68,11 +68,14 @@ function Login() {
             type="submit"
             className="rounded bg-indigo-400 flex justify-center hover:bg-indigo-900 text-white w-1/2 py-2"
           >
-            {isLoading ? (
-              <ClipLoader color="#ffffff" size={24} />
-            ) : (
+            {isLoading ? 
+              <ClipLoader 
+              color="#ffffff" 
+              size={24} 
+              /> : 
               <span>Entrar</span>
-            )}
+
+            }
           </button>
 
           <hr className="border-slate-800 w-full" />

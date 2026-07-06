@@ -46,6 +46,7 @@ function Cadastro() {
       setIsLoading(true);
 
       try {
+        console.log(usuario);
         await cadastrarUsuario("/usuarios/cadastrar", usuario, setUsuario);
         alert("Usuário cadastrado com sucesso!");
       } catch (error) {
